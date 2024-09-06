@@ -1,0 +1,22 @@
+<html> 
+   <head> 
+      <title>success</title> 
+   </head> 
+   <body> 
+      <p>File uploaded successfully</p> 
+      {%for file in name %}
+         <p>File Name: {{file.filename}}</p> 
+      {%endfor%}
+      <button onclick ="homePage()">Home</button>
+      <button onclick ="statusPage()">Check Status</button>
+      <script>
+         function homePage(){
+             location.href = "/";
+         }
+         function statusPage(){
+             location.href = "/status";
+         }
+     </script>    
+      
+   </body> 
+</html>
