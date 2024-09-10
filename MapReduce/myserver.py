@@ -3,6 +3,7 @@ from distutils.log import debug
 from fileinput import filename
 from flask import *
 import os
+from DataBase import dbHandler
 
 
 
@@ -12,14 +13,27 @@ class ServerHandler:
         print("starting server by " + name)
         self.app = Flask(name)
         self.jobs = {}
+        self.db = dbHandler()
+        self.create_tables()
+
         
-    
+
         @self.app.route('/')
-        def home():
+        def index():
             return render_template("index.html")
         
-        @self.app.route('/register')
+        @self.app.route('/home')
+        def home():
+            return render_template("home.html")
+        
+        @self.app.route('/register', methods = ['GET', 'POST'])
         def registerUser():
+            email = request.form.get('email')
+            username = request.form.get('username')
+            password = request.form.get('password')
+            print(username, password)
+            print("printed")
+            self.db.add_user(username, password)
             return render_template('register.html')
         
         
@@ -48,6 +62,9 @@ class ServerHandler:
     def run(self, host, port = 5000):
         self.app.run(host = host, port = port, debug=True)
 
+    def create_tables(self):
+        self.db.create_tables()
+    
 
 class MyServer:
     def __init__(self, name, hostname, hostport):

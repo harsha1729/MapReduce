@@ -1,20 +1,18 @@
-<html>   
-<head>   
-    <title>Home</title>   
-</head>   
-<body>   
-    <h1>Hey..!You are on Register Page</h1>
-    <button onclick ="homePage()">Home</button>
-    <button onclick ="uploadPage()">Upload</button>
-    
-    <script>
-        function homePage(){
-            location.href = "/";
-        }
-        function uploadPage(){
-            location.href = "/upload";
-        }
-    </script>    
-</body>   
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Page</title>
+</head>
+<body>
+    <h1>Hello...! You are on the register Page</h1>
 
+    <form id="registerForm" action="", method='POST'>
+        <input type="email" name="email" placeholder="xyz@gmail.com" required><br><br>
+        <input type="text" name="username" placeholder="username" required><br><br>
+        <input type="password" name="password" placeholder="password" required><br></br>
+        <input type="submit" value="Register">
+    </form>
+</body>
 </html>

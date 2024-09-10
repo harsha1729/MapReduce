@@ -3,17 +3,23 @@
     <title>Home</title>   
 </head>   
 <body>   
-    <h1>Hey..!You are on Home Page</h1>
-    <button onclick ="registerUser()">Register</button>
-    <button onclick ="checkStatus()">Check Status</button>
+    <h1>Hey..!You are on Index Page</h1>
+
+    
+    <h3>Enter your login details</h3>
+    <form action = "{{url_for('home')}}">
+        <input type="text" name="username" placeholder="username" required>
+        <input type="password" name="password" placeholder="password" required>
+        <input type="submit">
+    </form>
+    
+    
+    <p>Don't have an account ?<a href="./register">Register here</p>
+    
     
     <script>
-        function registerUser(){
-            location.href = "/register";
-        }
-        function checkStatus(){
-            location.href = "/status";
-        }
+        
+        
     </script>    
 </body>   
 
